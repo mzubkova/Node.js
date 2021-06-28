@@ -1,0 +1,167 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "API for all test apps\n",
+    "version" : "1.0.0",
+    "title" : "TEST API",
+    "contact" : {
+      "email" : ""
+    }
+  },
+  "host" : "localhost:7709",
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/api/postgresql/books": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "description": "Return books",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit active books list",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+             "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id" : {
+                    "type": "integer"
+                  },
+                  "date" : {
+                    "type": "string"
+                  },
+                  "author" : {
+                    "type": "string"
+                  },
+                  "description" : {
+                    "type": "string"
+                  },
+                  "image" : {
+                    "type": "string"
+                  },
+                  "title" : {
+                    "type": "string"
+                  }
+                },
+                "required": "id"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid date",
+            "schema": {
+              "example": {
+                "message": "Invalid date"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "description": "Create book",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+             "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date" : {
+                    "type": "string"
+                  },
+                  "author" : {
+                    "type": "string"
+                  },
+                  "description" : {
+                    "type": "string"
+                  },
+                  "image" : {
+                    "type": "string"
+                  },
+                  "title" : {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid date",
+            "schema": {
+              "example": {
+                "message": "Invalid date"
+              }
+            }
+          }
+        }
+      }
+    },
+  "/api/postgresql/books/:id": {
+    "put": {
+      "tags": [
+        "Books update"
+      ],
+      "description": "Update book",
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "successful operation",
+          "schema": {
+           "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date" : {
+                  "type": "string"
+                },
+                "author" : {
+                  "type": "string"
+                },
+                "description" : {
+                  "type": "string"
+                },
+                "image" : {
+                  "type": "string"
+                },
+                "title" : {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Invalid date",
+          "schema": {
+            "example": {
+              "message": "Invalid date"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}

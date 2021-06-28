@@ -10,7 +10,6 @@ const config = {
   port: 5432,
 }
 
-
 class Books {
   constructor() {
     this.client = new pg.Client(config);
@@ -48,7 +47,6 @@ class Books {
       await this.client.query(queryCreate);
       const result = await this.client.query(queryAll);
       res.send(result.rows).status(200);
-      console.log(result.rows);
     } catch (err) {
       console.log(err);
     }
@@ -58,8 +56,13 @@ class Books {
     try {
       const newField = req.body;
       const id = req.params.id;
-      const key = Object.keys(newField)[0];
-      const queryUpdate = `UPDATE books SET "${key}" = '${newField[key]}' WHERE id = ${id}`;
+      const queryUpdate = `UPDATE books SET
+      date = '${newField.date}',
+      author = '${newField.author}',
+      description = '${newField.description}',
+      title = '${newField.title}',
+      image = '${newField.image}'
+      WHERE id = ${id}`;
       await this.client.query(queryUpdate);
       res.send(queryUpdate.fields).status(200);
     } catch (err) {

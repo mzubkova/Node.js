@@ -1,5 +1,5 @@
 {
-  "name": "testexpress",
+  "name": "express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "start": "node index.js",
     "test": "jest --forceExit --coverage",
     "lint": "eslint \"./**\" --fix",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "swagger": "node ./swagger.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +19,8 @@
     "express": "^4.17.1",
     "express-validator": "^6.12.0",
     "mysql": "^2.18.1",
-    "pg": "^8.6.0"
+    "pg": "^8.6.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
